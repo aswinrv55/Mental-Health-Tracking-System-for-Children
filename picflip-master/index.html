@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- meta data -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="PicFlip! Memory Game for Kids">
+    <meta name="keywords" content="Memory game, memory, memo, game, preschool kids, kids game, toddler game">
+    <meta name="author" content="Anna Greaves">
+
+    <!-- favicon files -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+
+    <!-- style sheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
+
+    <!-- page title -->
+    <title>PicFlip!</title>
+    
+</head>
+
+<body>
+    <div id="content-wrapper">
+        <!--GAME SECTION-->
+        <main id="body-wrapper">
+            <div id="body-container" class="container-fluid p-0">
+                <div class="row">
+                    <!--Dashboard-->
+                    <div class="col-12 col-md-5 col-lg-4 dashboard px-3 pt-xl-3">
+                        <!--User info section-->
+                        <div class="row dashboard-section box-white-curved-corners mx-auto">
+                            <!--User name-->
+                            <div class="col-12 username-container">
+                                <h4 class="username">Name</h4>
+                            </div>
+                            <!--Put username variable here -->
+                            <div class="col-12 px-1 text-center">
+                                <!--User avatar-->
+                                <figure id="avatar" class="background-cover-center avatar-default show-modal box-white-curved-corners" title="Avatar"></figure>
+                                <!--Trophy image-->
+                                <figure class="trophy" title="trophy"></figure>
+                            </div>
+                            <!--User high score-->
+                            <div class="col-12 text-center">
+                                <h6 id="dashboard-high-score-text">Hard mode high score</h6>
+                                <div id="starsDisplay" class="stars" title="Score out of 5 stars">
+                                    <i class="dashboard-score-star star fas fa-star empty-star" title="no star"></i>
+                                    <i class="dashboard-score-star star fas fa-star empty-star" title="no star"></i>
+                                    <i class="dashboard-score-star star fas fa-star empty-star" title="no star"></i>
+                                    <i class="dashboard-score-star star fas fa-star empty-star" title="no star"></i>
+                                    <i class="dashboard-score-star star fas fa-star empty-star" title="no star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Selection section -->
+                        <div class="row dashboard-section box-white-curved-corners mx-auto">
+                            <div class="col-12 selection-button px-1 text-center">
+                                <button id="easyButton" type="button" class="dashboard-btn btn btn-success" aria-label="Easy Mode Button">Easy</button>
+                                <button id="mediumButton" type="button" class="dashboard-btn btn btn-warning" aria-label="Medium Mode Button">Med</button>
+                                <button id="hardButton" type="button" class="dashboard-btn btn btn-danger" aria-label="Hard Mode Button">Hard</button>
+                            </div>
+                            <!--card pack selection section-->
+                            <div class="col-12 selection-button px-1 text-center">
+                                <button type="button" class="dashboard-btn btn background-cover-center cars-cover" title="Cars" aria-label="Pack selection button: Disney Cars">
+                                </button>
+                                <button type="button" class="dashboard-btn btn background-cover-center frozen-cover" title="Frozen" aria-label="Pack selection button: Disney Frozen">
+                                </button>
+                                <button type="button" class="dashboard-btn btn background-cover-center toystory-cover" title="Toy Story" aria-label="Pack selection button: Disney Toy Story">
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- dashboard controls -->
+                        <div class="row my-3">
+                            <div class="col-12 selection-button px-1 text-center">
+                                <!-- Info modal pops up when clicked -->
+                                <button type="button" class="dashboard-btn btn btn-light circle-btn info-btn" data-toggle="modal" data-target="#infoModal"  aria-label="Info about the game button"> 
+                                    <i class="fas fa-question" title="question mark"></i>
+                                </button>
+                                <button type="button" id="muteButton" class="dashboard-btn btn btn-light circle-btn mute-btn"  aria-label="Mute Button">
+                                    <i class="fas fa-volume-mute" title="mute button"></i> 
+                                </button>
+                                <button type="button" class="dashboard-btn btn btn-light circle-btn reset-btn" aria-label="Game reset button"> 
+                                    <i class="fas fa-undo-alt" title="reset cards button"></i>
+                                </button>
+                            </div>
+                            <div class="col-12 text-center d-block d-md-none"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                    </div>
+                    <!--End Dashboard-->
+
+                    <!--game column-->
+
+                    <div class="col-12 col-md-7 col-lg-8 pb-5 game-board">
+                        <div class="row game-board-header">
+                            <!--game header-->
+                            <header class="col-8 my-3 p-1">
+                                <h1>Match the cards</h1>
+                            </header>
+                            <!-- game turns counter -->
+                            <div class="col-4 my-3">
+                                <h5 class="turns-counter">Turns: 0</h5>
+                            </div>
+                        </div>
+
+                        <!-- game board -->
+                        <div class="container-fluid py-5 pb-5 p-md-4">
+                            <div class="row justify-content-center">
+
+                                <div class="col-4 col-sm-3 my-card-column-easy visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-easy visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-easy visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-easy visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-easy visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-easy visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-easy visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-easy visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-medium visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-medium visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-medium visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-medium visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-hard visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-hard visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-hard visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 my-card-column-hard visible">
+                                    <div class="flip-card card-container mx-auto face-down">
+                                        <div class="flip-card-inner">
+                                            <figure class="flip-card-front game-card game-card-back" title="Flip card face down"></figure>
+                                            <figure class="flip-card-back game-card dummyclass" title="blank flip card face up"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- FOOTER -->
+        <div id="footerTabContainer" class="container-fluid p-0">
+            <div class="row">
+                <div class="col-12 p-0 m-0">
+                    <div class="row d-flex justify-content-end ">
+                        <div class="col-7 col-md-4 footer-tab-column">
+                            <div id="pullUpTab" class="pull-up-tab bg-secondary text-center mx-auto">
+                                <p id="pullUpTabText" class="mb-0 pt-2"> Pull </p><i id="pullUpTabIcon" class="fas fa-arrow-up p-2" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="row text-center bg-secondary text-white hide-zero-height">
+                        <div class="col-12 col-sm-2 col-md-3 py-sm-2 developer-info pb-0 text-center hide-zero-height">
+                            <h6 class="picflip-footer hide-zero-height">PicFlip!</h6>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-6 py-sm-2 developer-info text-center hide-zero-height">
+                            Designer Developer AJGreaves
+                        </div>
+                        <div class="col-12 col-sm-2 col-md-3 py-sm-2 developer-info text-center hide-zero-height">
+                            <a class="github-icon text-white hide-zero-height" href="https://github.com/AJGreaves" target="_blank" aria-label="Find me on GithHub" rel="noopener">
+            					<i class="fab fa-github-alt fa-lg fa-2x hide-zero-height"></i>
+            				</a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- USER MODAL -->
+    <div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="userInfoModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 modal-background background-cover-center info-modal-background pb-2 mb-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 my-modal-title">
+                                        <h2>Who wants to play?</h2>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <form class="userInfoModalForm">
+                                            <div class="form-group">
+                                                <!-- BUG: No limit to number of characters you could enter here.  
+                                                FIX: max length of input field set to 15 characters -->
+                                                <input type="text" class="form-control form-control-lg" name="username" id="username" maxlength="15" aria-label="Type your name here" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 info-title">
+                                                    <h2>Choose a picture</h2>
+                                                </div>
+                                            </div>
+                                            <div class="row box-white-curved-corners info-box py-1 my-2">
+                                                <label class="col-4 text-right selection-button my-2 p-0">
+                                                    <input class="form-check-input" type="radio" name="avatarRadios" id="avatarRadios1" value="plant" aria-label="Cute plant illustration" required>
+                                                    <img src="https://i.ibb.co/j3T7F2Y/plant.jpg" class="radio background-cover-center plant-cover" alt="Cute plant illustration">
+                                                </label>
+                                                <label class="col-4 text-center selection-button my-2 p-0">
+                                                    <input class="form-check-input" type="radio" name="avatarRadios" id="avatarRadios2" value="car" aria-label="Yellow car illustration" required>
+                                                    <img src="https://i.ibb.co/dfMH7zb/car.png" class="radio background-cover-center toycar-cover" alt="Yellow car illustration">
+                                                </label>
+                                                <label class="col-4 text-left selection-button my-2 p-0">
+                                                    <input class="form-check-input" type="radio" name="avatarRadios" id="avatarRadios3" value="strawberry" aria-label="Strawberry illustration" required>
+                                                    <img src="https://i.ibb.co/LZhQ7dG/strawberry.png" class="radio background-cover-center strawberry-cover" alt="Strawberry illustration">
+                                                </label>
+                                            </div>
+                                            <button id="user-info-submit-button" class="btn btn-light circle-btn tick-btn" aria-label="Submit Button"> 
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INFO MODAL -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 background-cover-center modal-background info-modal-background pb-2 mb-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 my-modal-title">
+                                        <h2>How to play</h2>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-12 text-center p-0">
+                                        <div class="box-white-curved-corners info-box m-2 px-3 py-2">
+                                            <i class="fas fa-trophy fa-2x py-2"></i>
+                                            <p class="info-modal-text">1. Flip two cards each turn to find the matching pairs.</p>
+                                            <p class="info-modal-text">2. You win when all the pairs have been found.</p>
+                                            <p class="info-modal-text">3. The fewer turns you use to win, the higher your score.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-12 my-modal-title">
+                                        <h4>Parents only!</h4>
+                                    </div>
+                                    <div class="col-12 text-center p-0">
+                                        <div class="box-white-curved-corners info-box m-2 px-3 py-1">
+                                            <i id="deleteDataModal" class="far fa-hand-paper fa-2x py-2" title="red hand icon"></i>
+                                            <p class="info-modal-text">To delete all high score data, click on the red hand.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center p-0">
+                                        <button type="button" class="btn btn-light circle-btn tick-btn" data-dismiss="modal" aria-label="Close button"> 
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WIN MODAL -->
+    <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="winModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 modal-background background-cover-center win-modal-background pb-2 mb-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 my-modal-title">
+                                        <h2>Woohoo!!</h2>
+                                        <h3>You win!</h3>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <div id="starsWinModal" class="stars win-stars" title="Score out of 5 stars">
+                                            <i class="score-star star fas fa-star empty-star" title="no star"></i>
+                                            <i class="score-star star fas fa-star empty-star" title="no star"></i>
+                                            <i class="score-star star fas fa-star empty-star" title="no star"></i>
+                                            <i class="score-star star fas fa-star empty-star" title="no star"></i>
+                                            <i class="score-star star fas fa-star empty-star" title="no star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center p-0">
+                                        <button id="win-modal-close-btn" type="button" class="btn btn-light circle-btn tick-btn" aria-label="Close button"> 
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HIGH SCORE MODAL -->
+    <div class="modal fade" id="newHighScoreModal" tabindex="-1" role="dialog" aria-labelledby="newHighScoreModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 modal-background background-cover-center win-modal-background pb-2 mb-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 my-modal-title">
+                                        <h2>New high score!!</h2>
+                                    </div>
+
+                                    <div class="col-12 text-center p-0">
+                                        <figure class="trophy mx-auto" title="trophy"></figure>
+                                    </div>
+
+                                    <div class="col-12 text-center p-0">
+                                        <div id="starsHighScoreModal" class="stars win-stars" title="score out of 5 stars">
+                                            <i class="win-modal-score-star star fas fa-star empty-star" title="no star"></i>
+                                            <i class="win-modal-score-star star fas fa-star empty-star" title="no star"></i>
+                                            <i class="win-modal-score-star star fas fa-star empty-star" title="no star"></i>
+                                            <i class="win-modal-score-star star fas fa-star empty-star" title="no star"></i>
+                                            <i class="win-modal-score-star star fas fa-star empty-star" title="no star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center p-0">
+                                        <button id="high-score-modal-close-btn" type="button" class="btn btn-light circle-btn tick-btn" data-dismiss="modal" aria-label="Close button"> 
+                                            <i class="fas fa-check" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARENTAL CHECK MODAL -->
+    <div class="modal fade" id="parentCheckModal" tabindex="-1" role="dialog" aria-labelledby="parentCheckModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 modal-background background-cover-center info-modal-background pb-2 mb-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 my-modal-title">
+                                        <h2>Delete Profile!</h2>
+                                        <p> Deleting this profile will reset all high score data. <br> To continue, please confirm you are an adult by clicking the answer to this question:
+                                        </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row justify-content-center box-white-curved-corners py-2 mb-3">
+                                            <div class="col-12">
+                                                <h6 id="math-question">19 - ? = 12</h6>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button type="button" class="btn answer-option-btn" data-dismiss="modal" aria-label="One">1</button>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button type="button" class="btn answer-option-btn" data-dismiss="modal" aria-label="Two">2</button>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button type="button" class="btn answer-option-btn" data-dismiss="modal" aria-label="Three">3</button>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button type="button" class="btn answer-option-btn" data-dismiss="modal" aria-label="Four">4</button>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button type="button" class="btn answer-option-btn" data-dismiss="modal" aria-label="Five">5</button>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button type="button" class="btn answer-option-btn" data-dismiss="modal" aria-label="Six">6</button>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button id="confirmResetData" type="button" class="btn answer-option-btn" aria-label="Seven">7</button>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button type="button" class="btn answer-option-btn" data-dismiss="modal" aria-label="Eight">8</button>
+                                            </div>
+                                            <div class="col-2 col-sm-1 answer-option-box p-0 text-center">
+                                                <button type="button" class="btn answer-option-btn" data-dismiss="modal" aria-label="Nine">9</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center p-0">
+                                        <button id="parental-check-modal-close-btn" type="button" class="btn btn-light circle-btn tick-btn" data-dismiss="modal" aria-label="Close button"> 
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIO FILES -->
+    <audio id="buttonClickAudio" src="assets/audio/button.mp3"></audio>
+    <audio id="applauseAudio" src="assets/audio/applause.mp3"></audio>
+    <audio id="cardFlipAudio" src="assets/audio/card-flip.wav"></audio>
+    <audio id="correctBingAudio" src="assets/audio/correct.wav"></audio>
+
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="assets/js/game.js"></script>
+
+</body>
+
+</html>

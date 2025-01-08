@@ -1,0 +1,75 @@
+/*----------------------------------- DASHBOARD */
+
+/* containers */
+
+.dashboard-section {
+    width: 300px;
+    margin: 1rem;
+    padding: 1rem 0rem;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.25), 0 3px 6px rgba(0,0,0,0.22);
+            box-shadow: 0 3px 9px rgba(0,0,0,0.25), 0 3px 6px rgba(0,0,0,0.22);
+}
+
+.username-container {
+    width: 150px;
+    height: 35px;
+}
+
+/* icons */
+.star {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.win-star {
+    color: $yellow;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+// gives effect of slightly embossed hole for a star to go into.
+.empty-star {
+    color: #e0e0e0;
+	opacity: 0.3;
+    text-shadow: 0px 1px 1px #4d4d4d; 
+}
+
+.stars .star {
+    font-size: 1.5rem;
+}
+
+/* BUTTONS */
+/* Difficulty selection section */
+
+.dashboard-btn {
+    margin: 0.3rem;
+}
+
+.btn,
+#avatar-radio {
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 8px;
+    border: 3px solid $dark-blue;
+}
+
+/* Dashboard controls */
+
+.circle-btn {
+    height: 80px;
+    width: 80px;
+    border: 4px solid $dark-blue;
+    border-radius: 50%;
+    background-color: white;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.circle-btn .fas {
+    font-size: 2.5rem;
+    color: $dark-blue;
+}
+
+.fa-chevron-down {
+    font-size: 4rem;
+    text-align: center;
+    color: rgba(255,255,255, 0.5);
+}

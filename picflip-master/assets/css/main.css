@@ -1,0 +1,687 @@
+@import url("https://fonts.googleapis.com/css?family=Bubblegum+Sans:100,200,300,400,500,600,700|Fredoka+One:100,200,300,400,500,600,700");
+/*----------------------------------- HEADINGS */
+h1, h2 {
+  font-family: "Fredoka One", cursive;
+  font-size: 40px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  color: #336666; }
+
+h3 {
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+  color: #336666; }
+
+.info-title h3 {
+  font-family: "Fredoka One", cursive;
+  font-size: 35px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  color: #336666; }
+
+h4 {
+  font-family: "Fredoka One", cursive;
+  font-size: 25px;
+  font-weight: 200;
+  text-align: center;
+  color: #336666; }
+
+h5 {
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 40px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  padding-top: 4px;
+  /*fixes alignment with h1*/
+  color: #336666; }
+
+h6 {
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  color: #336666; }
+
+/* Other fonts */
+.picflip-footer {
+  font-size: 17px;
+  color: white; }
+
+p {
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  color: #336666; }
+
+button {
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 20px !important;
+  font-weight: 100;
+  color: white !important; }
+
+.info-modal-text {
+  font-size: 1.1em;
+  line-height: 0.2em; }
+
+/* BACKGROUNDS */
+.avatar-default {
+  background-image: url("https://i.ibb.co/DQkPDHb/main-logo.png"); }
+
+.trophy {
+  background-image: url("https://i.ibb.co/1JD5mS2/trophy.png"); }
+
+.cars-cover {
+  background-image: url("https://i.ibb.co/x1wmBCq/lightning-main.jpg"); }
+
+.frozen-cover {
+  background-image: url("https://i.ibb.co/b77KKd9/Elsa-Anna-main.jpg"); }
+
+.toystory-cover {
+  background-image: url("https://i.ibb.co/Lh6Y23z/woody-main.jpg"); }
+
+.plant-cover {
+  background-image: url("https://i.ibb.co/j3T7F2Y/plant.jpg"); }
+
+.toycar-cover {
+  background-image: url("https://i.ibb.co/dfMH7zb/car.png"); }
+
+.strawberry-cover {
+  background-image: url("https://i.ibb.co/LZhQ7dG/strawberry.png"); }
+
+/* MODAL BACKGROUNDS */
+.modal-background {
+  height: auto;
+  width: auto;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 8px; }
+
+.info-modal-background {
+  background-image: url("https://i.ibb.co/M2hwYnc/comic-green-bg.jpg");
+  background-color: #66cc99; }
+
+.win-modal-background {
+  background-image: url("https://i.ibb.co/T294Qz7/comic-orange-bg.jpg");
+  background-color: #ffcc33; }
+
+/* removes bootstrap background settings on modal so my custom ones show up */
+.modal-content {
+  background-color: transparent;
+  border: none; }
+
+.background-cover-center {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+/* see media querues for size adjustment on mobiles */
+.trophy, #avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0.3rem;
+  position: relative;
+  display: inline-block;
+  background-size: contain; }
+
+/* CONTAINERS */
+/* to get rid of overflow on pages*/
+.row, .container-fluid {
+  margin-left: 0;
+  margin-right: 0; }
+
+/* fix display issues on mobiles*/
+#content-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+#body-wrapper {
+  background-image: url("https://i.ibb.co/yYJqmDn/trains-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  /* fixes background image so it does not scroll. BUG fix for mobile screens in media queries */
+  background-attachment: fixed; }
+
+.box-white-curved-corners {
+  background-color: #f5f5f5;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 8px; }
+
+.dashboard {
+  min-height: 100vh;
+  background-color: #33cccc;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.22);
+  padding: 0; }
+
+.game-board {
+  height: 100vh;
+  padding: 0; }
+
+/* BUTTONS */
+.selection-button button,
+.selection-button img {
+  height: 80px;
+  width: 80px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+
+/* FOOTER */
+/* see media queries for smaller padding on mobiles*/
+.github-icon,
+.developer-info,
+.picflip-footer {
+  display: inline;
+  padding: 1rem 1rem 0rem 1rem;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.5); }
+
+.fa-github-alt {
+  -o-transition: all 0.3s ease-in-out 0.3s;
+  transition: all 0.3s ease-in-out 0.3s;
+  -moz-transition: all 0.3s ease-in-out 0.3s;
+  -webkit-transition: all 0.3s ease-in-out 0.3s; }
+
+.fa-github-alt:hover {
+  color: black;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2); }
+
+.pull-up-tab {
+  border-radius: 8px 8px 0px 0px;
+  width: 150px;
+  height: 35px;
+  cursor: pointer; }
+
+#footerTabContainer {
+  margin-top: -35px;
+  overflow: hidden;
+  z-index: 2;
+  -o-transition: all 0.3s ease-in-out 0.3s;
+  transition: all 0.3s ease-in-out 0.3s;
+  -moz-transition: all 0.3s ease-in-out 0.3s;
+  -webkit-transition: all 0.3s ease-in-out 0.3s; }
+
+#pullUpTabIcon,
+#pullUpTabText {
+  display: inline; }
+
+.hide-zero-height {
+  height: 0;
+  -o-transition: all 0.3s ease-in-out 0.3s;
+  transition: all 0.3s ease-in-out 0.3s;
+  -moz-transition: all 0.3s ease-in-out 0.3s;
+  -webkit-transition: all 0.3s ease-in-out 0.3s; }
+
+#footerTabContainer.active-footer {
+  -o-transition: all 0.3s ease-in-out 0.3s;
+  transition: all 0.3s ease-in-out 0.3s;
+  -moz-transition: all 0.3s ease-in-out 0.3s;
+  -webkit-transition: all 0.3s ease-in-out 0.3s;
+  margin-top: -80px; }
+  #footerTabContainer.active-footer footer {
+    height: 45px; }
+
+.pull-up-tab p {
+  font-family: "Bubblegum Sans", cursive;
+  color: white; }
+
+.fa-arrow-up,
+.fa-arrow-down {
+  color: white;
+  font-size: 18px; }
+
+/*----------------------------------- DASHBOARD */
+/* containers */
+.dashboard-section {
+  width: 300px;
+  margin: 1rem;
+  padding: 1rem 0rem;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.22); }
+
+.username-container {
+  width: 150px;
+  height: 35px; }
+
+/* icons */
+.star {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); }
+
+.win-star {
+  color: #ffe933;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); }
+
+.empty-star {
+  color: #e0e0e0;
+  opacity: 0.3;
+  text-shadow: 0px 1px 1px #4d4d4d; }
+
+.stars .star {
+  font-size: 1.5rem; }
+
+/* BUTTONS */
+/* Difficulty selection section */
+.dashboard-btn {
+  margin: 0.3rem; }
+
+.btn,
+#avatar-radio {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 8px;
+  border: 3px solid #336666; }
+
+/* Dashboard controls */
+.circle-btn {
+  height: 80px;
+  width: 80px;
+  border: 4px solid #336666;
+  border-radius: 50%;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+
+.circle-btn .fas {
+  font-size: 2.5rem;
+  color: #336666; }
+
+.fa-chevron-down {
+  font-size: 4rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5); }
+
+/*----------------------------------- GAME BOARD */
+/* lines up this font with the other next to it */
+.turns-counter {
+  padding-top: 0.4rem; }
+
+/* containers */
+.game-board-header {
+  background-color: #f5f5f5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+
+.my-card-column-easy,
+.my-card-column-medium,
+.my-card-column-hard {
+  /*see media queries for adjustments to card column size to fit other screens*/
+  height: 130px;
+  padding: 0; }
+
+.card-container {
+  /*see media queries for adjustments to card size to fit other screens*/
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  border-radius: 8px; }
+
+.game-card {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  /*clearer shadow to stand out on picture background*/
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.5); }
+
+/* Code for flipping cards taken from w3schools and adjusted to my needs: https://www.w3schools.com/howto/howto_css_flip_card.asp */
+.flip-card {
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-perspective: 1000px;
+  /* for 3D effect */
+  perspective: 1000px; }
+
+/* Positions the cards */
+.flip-card-inner {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  -o-transition: transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); }
+
+/* Horizontal flip when you click flip box container */
+.flip-card.face-up .flip-card-inner {
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+/* Positions the front and back side */
+.flip-card-front, .flip-card-back {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  /* Bug fix: Cards were not staying flipped over on Safari browser, this line of code fixed it.*/
+  -webkit-backface-visibility: hidden; }
+
+/* animation on flipping back */
+.flip-card-back {
+  cursor: pointer;
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+/* indents card slightly on click, before flip */
+.flip-card:active {
+  -webkit-transform: scale(0.97);
+  -ms-transform: scale(0.97);
+  transform: scale(0.97);
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  -o-transition: transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s; }
+
+.disabled {
+  pointer-events: none; }
+
+/* CARD BACKGROUND IMAGES */
+.game-card-back {
+  background-image: url("https://i.ibb.co/Cvpst56/card-back.png");
+  border-radius: 8px; }
+
+.lightning {
+  background-image: url("https://i.ibb.co/fXTswXC/lightning.jpg");
+  border-radius: 8px; }
+
+.cruz {
+  background-image: url("https://i.ibb.co/GJQYqrq/Cruz.jpg");
+  border-radius: 8px; }
+
+.doc {
+  background-image: url("https://i.ibb.co/N2d61bW/Doc.jpg");
+  border-radius: 8px; }
+
+.fillmore {
+  background-image: url("https://i.ibb.co/8BGbs6d/Fillmore.jpg");
+  border-radius: 8px; }
+
+.jackson-storm {
+  background-image: url("https://i.ibb.co/8MxHcbd/Jackson-Storm.jpg");
+  border-radius: 8px; }
+
+.mac {
+  background-image: url("https://i.ibb.co/PFTHfCH/Mac.jpg");
+  border-radius: 8px; }
+
+.mater {
+  background-image: url("https://i.ibb.co/R3KNZtZ/Mater.jpg");
+  border-radius: 8px; }
+
+.sally {
+  background-image: url("https://i.ibb.co/8svM53T/Sally.jpg");
+  border-radius: 8px; }
+
+.elsa {
+  background-image: url("https://i.ibb.co/GvCLg87/Elsa.jpg");
+  border-radius: 8px; }
+
+.anna {
+  background-image: url("https://i.ibb.co/9qyMkQJ/Anna.jpg");
+  border-radius: 8px; }
+
+.olaf {
+  background-image: url("https://i.ibb.co/LtqC4cz/Olaf.jpg");
+  border-radius: 8px; }
+
+.kristoff {
+  background-image: url("https://i.ibb.co/JskWQhB/Kristoff.jpg");
+  border-radius: 8px; }
+
+.hans {
+  background-image: url("https://i.ibb.co/tp2qxzM/Hans.jpg");
+  border-radius: 8px; }
+
+.sven {
+  background-image: url("https://i.ibb.co/7SWWWrR/Sven.jpg");
+  border-radius: 8px; }
+
+.elsa-anna {
+  background-image: url("https://i.ibb.co/NKNX2qq/Elsa-Anna.jpg");
+  border-radius: 8px; }
+
+.olaf-sven {
+  background-image: url("https://i.ibb.co/WfPwybd/Olaf-Sven.jpg");
+  border-radius: 8px; }
+
+.woody {
+  background-image: url("https://i.ibb.co/rpjCZnK/Woody.jpg");
+  border-radius: 8px; }
+
+.buzz {
+  background-image: url("https://i.ibb.co/WyhbvPT/Buzz.jpg");
+  border-radius: 8px; }
+
+.rex {
+  background-image: url("https://i.ibb.co/JvZZ4ht/rex.jpg");
+  border-radius: 8px; }
+
+.alien {
+  background-image: url("https://i.ibb.co/gVWz130/alien.jpg");
+  border-radius: 8px; }
+
+.jessie {
+  background-image: url("https://i.ibb.co/2Sttw4m/Jessie.jpg");
+  border-radius: 8px; }
+
+.potato {
+  background-image: url("https://i.ibb.co/56ySCKB/Potato.jpg");
+  border-radius: 8px; }
+
+.lotso {
+  background-image: url("https://i.ibb.co/WFBN3rC/Lotso.jpg");
+  border-radius: 8px; }
+
+.bullseye {
+  background-image: url("https://i.ibb.co/0GPn4CN/Bullseye.jpg");
+  border-radius: 8px; }
+
+/*----------------------------------- MODALS */
+.my-modal-title {
+  padding-top: 1rem; }
+
+/* USER MODAL */
+/* modal radio button fix sourced from: 
+https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons
+and ajusted to project needs*/
+/* hides radio button, makes clickable area cover button image */
+/* see media queries for reduction in size on mobiles */
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 80px;
+  height: 80px; }
+
+/* radio checked */
+[type=radio]:checked + img {
+  outline: 4px solid #33cccc; }
+
+/* adjusts radio check field input to full size of image */
+.form-check-input {
+  margin-top: 0;
+  margin-left: 0; }
+
+/* see media queries for reduction in size on mobiles */
+#avatar-radio {
+  height: 80px;
+  width: 80px; }
+
+/* INFO MODAL */
+.fa-clone {
+  color: #339966; }
+
+.fa-trophy {
+  color: #ffcc33; }
+
+.fa-hand-paper {
+  color: red; }
+
+.fa-2x {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); }
+
+.fa-2x.fa-star {
+  color: #ffe933; }
+
+.info-box p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem; }
+
+/* WIN MODAL */
+.win-stars {
+  margin-top: 1rem;
+  margin-bottom: 2rem; }
+
+/* PARENT CHECK MODAL */
+#math-question {
+  font-size: 3rem;
+  color: #33cccc; }
+
+.answer-option-box {
+  margin: 0.3rem;
+  max-width: 74px; }
+
+.answer-option-btn {
+  width: 55px;
+  background-color: white;
+  font-family: "Bubblegum Sans", cursive;
+  color: #33cccc !important; }
+
+.answer-option {
+  font-size: 2rem;
+  color: #33cccc; }
+
+/*----------------------------------- MEDIA QUERIES */
+@media screen and (max-width: 992px) {
+  /*phones and tablets*/
+  h1, h2, h5 {
+    font-size: 30px; }
+
+  .card-container {
+    width: 90px;
+    height: 90px; }
+
+  .my-card-column-easy,
+  .my-card-column-medium,
+  .my-card-column-hard {
+    height: 100px; }
+
+  .dashboard-section {
+    width: 290px; } }
+@media screen and (max-width: 767px) {
+  /*phones*/
+  h1 {
+    font-size: 26px; }
+
+  h2 {
+    font-size: 22px; }
+
+  h5 {
+    font-size: 24px; }
+
+  .info-box > p {
+    font-size: 17px;
+    line-height: 1.5rem; }
+
+  .info-box {
+    margin: 0.5em 0em !important;
+    padding: 1em !important; }
+
+  .fa-3x {
+    font-size: 2em; }
+
+  .card-container {
+    width: 120px;
+    height: 120px; }
+
+  .my-card-column-easy,
+  .my-card-column-medium,
+  .my-card-column-hard {
+    height: 130px; }
+
+  .github-icon,
+  .developer-info,
+  .picflip-footer {
+    padding: 0.4rem; }
+
+  /* fixes dashboard and gameboard height issue on phones*/
+  .dashboard,
+  .game-board {
+    height: auto; }
+
+  .dashboard {
+    min-height: auto; }
+
+  #math-question {
+    font-size: 2.5rem; } }
+@media screen and (max-width: 576px) {
+  /*small phones*/
+  button .star {
+    font-size: 0.4rem; }
+
+  .card-container {
+    width: 80px;
+    height: 80px; }
+
+  .my-card-column-easy,
+  .my-card-column-medium,
+  .my-card-column-hard {
+    height: 90px; }
+
+  .dashboard-section {
+    width: auto; }
+
+  .trophy, #avatar {
+    width: 100px;
+    height: 100px; }
+
+  .selection-button button {
+    height: 70px;
+    width: 70px; }
+
+  [type=radio],
+  img.radio {
+    height: 50px;
+    width: 50px; }
+
+  #footerTabContainer.active-footer {
+    margin-top: -145px; }
+    #footerTabContainer.active-footer footer {
+      height: 110px; } }
+
+/*# sourceMappingURL=main.css.map */

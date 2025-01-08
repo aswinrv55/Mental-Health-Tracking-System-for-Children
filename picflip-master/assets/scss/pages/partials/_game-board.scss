@@ -1,0 +1,224 @@
+/*----------------------------------- GAME BOARD */
+
+/* lines up this font with the other next to it */
+.turns-counter {
+    padding-top: 0.4rem;
+}
+
+/* containers */
+.game-board-header {
+    background-color: $off-white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.my-card-column-easy,
+.my-card-column-medium,
+.my-card-column-hard {
+    /*see media queries for adjustments to card column size to fit other screens*/
+    height: 130px;
+    padding: 0;
+}
+
+.card-container {
+    /*see media queries for adjustments to card size to fit other screens*/
+    cursor: pointer; 
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+}
+
+.game-card {
+    cursor: pointer; 
+    width: 100%;
+    height: 100%;
+    background: {
+        repeat: no-repeat;
+        size: cover;
+        position: center;
+    }
+    border-radius: 8px;
+    /*clearer shadow to stand out on picture background*/
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.5);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Code for flipping cards taken from w3schools and adjusted to my needs: https://www.w3schools.com/howto/howto_css_flip_card.asp */
+.flip-card {
+    cursor: pointer; 
+    background-color: transparent;
+    -webkit-perspective: 1000px; /* for 3D effect */
+            perspective: 1000px;
+}
+
+/* Positions the cards */
+.flip-card-inner {
+    cursor: pointer; 
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: -webkit-transform 0.8s;
+    -o-transition: transform 0.8s;
+    transition: transform 0.8s;
+    transition: transform 0.8s, -webkit-transform 0.8s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+}
+
+/* Horizontal flip when you click flip box container */
+.flip-card.face-up .flip-card-inner {
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg); 
+}
+
+/* Positions the front and back side */
+.flip-card-front, .flip-card-back {
+    cursor: pointer; 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Bug fix: Cards were not staying flipped over on Safari browser, this line of code fixed it.*/
+    -webkit-backface-visibility: hidden;
+}
+
+/* animation on flipping back */
+.flip-card-back {
+    cursor: pointer;
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg); 
+} 
+
+
+/* indents card slightly on click, before flip */
+.flip-card:active {
+    -webkit-transform: scale(.97);
+        -ms-transform: scale(.97);
+            transform: scale(.97);
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    -o-transition: transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+/* CARD BACKGROUND IMAGES */
+.game-card-back {
+    background-image: url("https://i.ibb.co/Cvpst56/card-back.png");
+    border-radius: 8px;
+}
+
+.lightning { 
+    background-image: url("https://i.ibb.co/fXTswXC/lightning.jpg");
+    border-radius: 8px;
+}
+
+.cruz {
+    background-image: url("https://i.ibb.co/GJQYqrq/Cruz.jpg");
+    border-radius: 8px;
+}
+
+.doc {
+    background-image: url("https://i.ibb.co/N2d61bW/Doc.jpg");
+    border-radius: 8px;
+}
+
+.fillmore {
+    background-image: url("https://i.ibb.co/8BGbs6d/Fillmore.jpg");
+    border-radius: 8px;
+}
+
+.jackson-storm {
+    background-image: url("https://i.ibb.co/8MxHcbd/Jackson-Storm.jpg");
+    border-radius: 8px;
+}
+
+.mac {
+    background-image: url("https://i.ibb.co/PFTHfCH/Mac.jpg");
+    border-radius: 8px;
+}
+
+.mater {
+    background-image: url("https://i.ibb.co/R3KNZtZ/Mater.jpg");
+    border-radius: 8px;
+}
+
+.sally {
+    background-image: url("https://i.ibb.co/8svM53T/Sally.jpg");
+    border-radius: 8px;
+}
+
+.elsa {
+    background-image: url("https://i.ibb.co/GvCLg87/Elsa.jpg");
+    border-radius: 8px;
+}
+.anna{
+    background-image: url("https://i.ibb.co/9qyMkQJ/Anna.jpg");
+    border-radius: 8px;
+}
+.olaf{
+    background-image: url("https://i.ibb.co/LtqC4cz/Olaf.jpg");
+    border-radius: 8px;
+}
+.kristoff{
+    background-image: url("https://i.ibb.co/JskWQhB/Kristoff.jpg");
+    border-radius: 8px;
+}
+.hans{
+    background-image: url("https://i.ibb.co/tp2qxzM/Hans.jpg");
+    border-radius: 8px;
+}
+.sven{
+    background-image: url("https://i.ibb.co/7SWWWrR/Sven.jpg");
+    border-radius: 8px;
+}
+.elsa-anna{
+    background-image: url("https://i.ibb.co/NKNX2qq/Elsa-Anna.jpg");
+    border-radius: 8px;
+}
+.olaf-sven{
+    background-image: url("https://i.ibb.co/WfPwybd/Olaf-Sven.jpg");
+    border-radius: 8px;
+}
+.woody{
+    background-image: url("https://i.ibb.co/rpjCZnK/Woody.jpg");
+    border-radius: 8px;
+}
+.buzz{
+    background-image: url("https://i.ibb.co/WyhbvPT/Buzz.jpg");
+    border-radius: 8px;
+}
+.rex{
+    background-image: url("https://i.ibb.co/JvZZ4ht/rex.jpg");
+    border-radius: 8px;
+}
+.alien{
+    background-image: url("https://i.ibb.co/gVWz130/alien.jpg");
+    border-radius: 8px;
+}
+.jessie{
+    background-image: url("https://i.ibb.co/2Sttw4m/Jessie.jpg");
+    border-radius: 8px;
+}
+.potato{
+    background-image: url("https://i.ibb.co/56ySCKB/Potato.jpg");
+    border-radius: 8px;
+}
+.lotso{
+    background-image: url("https://i.ibb.co/WFBN3rC/Lotso.jpg");
+    border-radius: 8px;
+}
+.bullseye{
+    background-image: url("https://i.ibb.co/0GPn4CN/Bullseye.jpg");
+    border-radius: 8px;
+}

@@ -1,0 +1,95 @@
+/*----------------------------------- MODALS */
+
+.my-modal-title {
+    padding-top: 1rem;
+}
+
+/* USER MODAL */
+
+/* modal radio button fix sourced from: 
+https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons
+and ajusted to project needs*/
+
+/* hides radio button, makes clickable area cover button image */
+/* see media queries for reduction in size on mobiles */
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 80px;
+  height: 80px;
+}
+
+/* radio checked */
+[type=radio]:checked + img {
+  outline: 4px solid $light-blue;
+}
+
+/* adjusts radio check field input to full size of image */
+.form-check-input {
+    margin-top: 0;
+    margin-left: 0;
+}
+
+/* see media queries for reduction in size on mobiles */
+#avatar-radio {
+    height: 80px;
+    width: 80px;
+}
+
+/* INFO MODAL */
+
+.fa-clone {
+    color: $dark-green;
+}
+
+.fa-trophy {
+    color: $orange;
+}
+.fa-hand-paper {
+    color: red;
+}
+
+.fa-2x {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.fa-2x.fa-star{
+    color: $yellow;
+}
+
+.info-box p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5rem;
+}
+
+/* WIN MODAL */
+
+.win-stars {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* PARENT CHECK MODAL */
+
+// see media queries for smaller font size on mobiles
+#math-question {
+    font-size: 3rem;
+    color: $light-blue;
+}
+
+.answer-option-box {
+    margin: 0.3rem;
+    max-width: 74px;
+}
+
+.answer-option-btn {
+    width: 55px;
+    background-color: white;
+    font-family: $fun-font;
+    color: $light-blue!important; // overrides white!important on button css earlier in file. 
+}
+
+.answer-option {
+    font-size: 2rem;
+    color: $light-blue;
+}
